@@ -1,0 +1,10 @@
+clang
+%cpp -std=c++2b
+%hpp -std=c++2b
+-Werror=return-type
+-lstdc++fs
+-Werror=implicit-fallthrough
+-Werror=implicit-int-conversion
+-Werror=narrowing
+-Werror=uninitialized
+-Werror=pointer-to-int-cast
