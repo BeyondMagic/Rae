@@ -38,9 +38,13 @@ CPP_FLAGS := -O3
 
 CPP_FLAGS := $(CPP_FLAGS) -Wall
 
+CPP_FLAGS := $(CPP_FLAGS) -Werror
+
 CPP_FLAGS := $(CPP_FLAGS) -Wextra
 
 CPP_FLAGS := $(CPP_FLAGS) -pedantic
+
+CPP_FLAGS := $(CPP_FLAGS) -Wconversion
 
 CPP_FLAGS := $(CPP_FLAGS) -Wsign-conversion
 

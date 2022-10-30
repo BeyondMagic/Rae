@@ -59,6 +59,11 @@ int main ( const int argc, const char ** argv)
 
   const auto gray = std::ceil( c.gray() );
 
-  fmt::print("rgb({},{},{})\n", gray, gray, gray);
+  //fmt::print("{}\n", gray);
+
+  if (gray > 127.0)
+    fmt::print("rgb({},{},{})\n", 0, 0, 0);
+  else
+    fmt::print("rgb({},{},{})\n", 255, 255, 255);
 
 }

@@ -27,6 +27,8 @@ SOFTWARE.
 #include "interfaces.hpp"
 
 #include <ImageMagick-7/Magick++.h>
+#include <ImageMagick-7/Magick++/Blob.h>
+#include <ImageMagick-7/Magick++/Image.h>
 #include <ImageMagick-7/MagickCore/magick-type.h>
 #include <ImageMagick-7/Magick++/Geometry.h>
 #include <ImageMagick-7/Magick++/Color.h>
@@ -40,8 +42,11 @@ class ImageProcessor
   public:
 
     Colour colour;
+    std::string base;
 
     ImageProcessor ( const std::string &, const char *[]);
+
+    std::string & convert ( const std::string & );
 
 };
 
@@ -52,6 +57,12 @@ ImageProcessor::ImageProcessor ( const std::string & path, const char * argv[])
 
   image.read(path);
 
+  //Magick::Blob blob;
+
+  //image.write( &blob );
+
+  //this->base = blob.base64();
+
   image.resize( Magick::Geometry(1, 1, 1, 1) );
 
   Magick::Color colour = image.pixelColor( 0, 0 );
@@ -59,5 +70,6 @@ ImageProcessor::ImageProcessor ( const std::string & path, const char * argv[])
   this->colour.red   = colour.quantumRed() * 255 * QuantumScale;
   this->colour.green = colour.quantumGreen() * 255 * QuantumScale;
   this->colour.blue  = colour.quantumBlue() * 255 * QuantumScale;
+
 
 }

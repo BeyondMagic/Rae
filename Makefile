@@ -9,7 +9,7 @@ all: build
 #-----------------------------------------------
 
 install:
-	cp    -f ./distribution/$(NAME_PROGRAM)-$(VERSION) ${DESTDIR}/distribution/$(NAME_PROGRAM)
+	cp    -f ./distribution/$(NAME_PROGRAM)-$(VERSION) ${DESTDIR}/bin/$(NAME_PROGRAM)
 
 clean:
 	rm    -r distribution

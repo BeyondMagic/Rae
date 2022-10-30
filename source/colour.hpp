@@ -17,14 +17,15 @@ class ColourProcessor
 
   public:
 
-    [[nodiscard]] auto gam_sRGB_inverse(int) -> double;
+    [[nodiscard]] auto gam_sRGB_inverse(double) -> double;
     [[nodiscard]] auto gam_sRGB(double) -> double;
     [[nodiscard]] auto gray() -> double;
+
     ColourProcessor ( Colour & );
 
 };
 
-double ColourProcessor::gam_sRGB_inverse (int c)
+double ColourProcessor::gam_sRGB_inverse (double c)
 {
 
   double ic = c/255.0;
@@ -51,7 +52,7 @@ double ColourProcessor::gray()
 {
 
   return gam_sRGB(
-      rY * gam_sRGB_inverse(colour.blue) +
+      rY * gam_sRGB_inverse(colour.red) +
       gY * gam_sRGB_inverse(colour.green) +
       bY * gam_sRGB_inverse(colour.blue)
   );
